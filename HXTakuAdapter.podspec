@@ -2,7 +2,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "HXTakuAdapter"
-  spec.version      = "0.0.1"
+  spec.version      = "1.0.0"
   spec.summary      = "HXSDK 适配器, 用于在TopOn聚合SDK请求广告"
 
   spec.description  = <<-DESC
