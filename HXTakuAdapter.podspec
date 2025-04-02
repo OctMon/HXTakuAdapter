@@ -18,7 +18,9 @@ Pod::Spec.new do |spec|
   spec.source       = { :git => "https://github.com/OctMon/HXTakuAdapter.git", :tag => "#{spec.version}" }
   #spec.source       = { :git => "https://github.com/CocoaPods/Specs.git", :tag => "#{spec.version}" }
 
-  spec.ios.deployment_target = '11.0'
+  spec.ios.deployment_target = '9.0'
+
+  spec.static_framework = true
 
   # spec.source_files  = "Classes", "Classes/**/*.{h,m}"
   # spec.exclude_files = "Classes/Exclude"
@@ -37,6 +39,7 @@ Pod::Spec.new do |spec|
   spec.requires_arc = true
   # spec.user_target_xcconfig =   {'OTHER_LDFLAGS' => ['-lObjC']}
   spec.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  # spec.pod_target_xcconfig = { 'SWIFT_OBJC_INTERFACE_HEADER_NAME' => "$(SWIFT_MODULE_NAME).h", 'ENABLE_BITCODE' => 'NO', 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386 arm64' }
   spec.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   
   spec.dependency "AnyThinkiOS", "~>6.3.75"
@@ -46,7 +49,7 @@ Pod::Spec.new do |spec|
     # spec.xcconfig = {"OTHER_LDFLAGS" => "-ObjC"}
       # spec.xcconfig = {"OTHER_LDFLAGS" => "-ObjC"}
         # spec.xcconfig = {"OTHER_LDFLAGS" => "-ObjC"}
-  valid_archs = ['x86_64', 'arm64']
+  valid_archs = ['arm64' 'armv7' 'x86_64' 'i386']
   spec.xcconfig = {
     'VALID_ARCHS' =>  valid_archs.join(' '),
     "OTHER_LDFLAGS" => "-ObjC"
